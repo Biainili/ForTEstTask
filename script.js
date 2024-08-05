@@ -140,20 +140,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const subcategory1 = document.getElementById("subcategory-1");
     const subcategory2 = document.getElementById("subcategory-2");
     subcategoreContainer.innerHTML = "";
-    if (subcategory1) {
-      subcategoreContainer.appendChild(subcategory1);
+    if (window.innerWidth > 428) {
+      if (subcategory1) {
+        subcategoreContainer.appendChild(subcategory1);
+      }
     }
     if (subcategory2) {
-      subcategoreContainer.appendChild(subcategory1);
+      subcategoreContainer.appendChild(subcategory2);
     }
     mainCategoryList.querySelectorAll(".category-btn").forEach((btn, index) => {
-      if (index !== 0) {
+      if (index !== 0 && index !== 1) {
         btn.classList.remove("active_text");
       }
     });
-
     articleContainer.style.gap = "10px";
-
     mainCategoryList.querySelectorAll(".category-btn").forEach((btn, index) => {
       if (index !== 0 && index !== 1) {
         btn.classList.remove("active_text");
@@ -163,27 +163,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function startCategories2() {
     subCunter = 3;
-    const subcategory1 = document.getElementById("subcategory-1");
-    const subcategory2 = document.getElementById("subcategory-2");
     const subcategory3 = document.getElementById("subcategory-3");
-    if (subcategory1) {
-      subcategoreContainer.appendChild(subcategory1);
-    }
-    if (subcategory2) {
-      subcategoreContainer.appendChild(subcategory2);
-    }
     if (subcategory3) {
       subcategoreContainer.appendChild(subcategory3);
     }
-
     mainCategoryList.querySelectorAll(".category-btn").forEach((btn, index) => {
       if (index !== 0 && index !== 1) {
         btn.classList.remove("active_text");
       }
     });
-
     articleContainer.style.gap = "10px";
-
     mainCategoryList
       .querySelectorAll(".category-btn")
       .forEach((categoryBtn) => {
