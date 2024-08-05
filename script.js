@@ -105,13 +105,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (document.getElementById("subcategory-3"))
           document.getElementById("subcategory-3").remove();
         document.getElementById("subcategory-1").classList.add("active");
+        startCategories1();
         break;
       case "subcategory-2":
         if (document.getElementById("subcategory-3"))
           document.getElementById("subcategory-3").remove();
         document.getElementById("subcategory-2").classList.add("active");
+        startCategories2();
         break;
       case "subcategory-3":
+        startCategories2();
         break;
       default:
         break;
@@ -124,6 +127,61 @@ document.addEventListener("DOMContentLoaded", function () {
     mainCategoryList
       .querySelectorAll(".category-btn")
       .forEach((btn) => btn.classList.remove("active_text"));
+
+    articleContainer.style.gap = "10px";
+    mainCategoryList
+      .querySelectorAll(".category-btn")
+      .forEach((categoryBtn) => {
+        categoryBtn.addEventListener("click", handleClick);
+      });
+  }
+  function startCategories1() {
+    subCunter = 2;
+    const subcategory1 = document.getElementById("subcategory-1");
+    const subcategory2 = document.getElementById("subcategory-2");
+    subcategoreContainer.innerHTML = "";
+    if (subcategory1) {
+      subcategoreContainer.appendChild(subcategory1);
+    }
+    if (subcategory2) {
+      subcategoreContainer.appendChild(subcategory1);
+    }
+    mainCategoryList.querySelectorAll(".category-btn").forEach((btn, index) => {
+      if (index !== 0) {
+        btn.classList.remove("active_text");
+      }
+    });
+
+    articleContainer.style.gap = "10px";
+
+    mainCategoryList.querySelectorAll(".category-btn").forEach((btn, index) => {
+      if (index !== 0 && index !== 1) {
+        btn.classList.remove("active_text");
+      }
+    });
+  }
+
+  function startCategories2() {
+    subCunter = 3;
+    const subcategory1 = document.getElementById("subcategory-1");
+    const subcategory2 = document.getElementById("subcategory-2");
+    const subcategory3 = document.getElementById("subcategory-3");
+    if (subcategory1) {
+      subcategoreContainer.appendChild(subcategory1);
+    }
+    if (subcategory2) {
+      subcategoreContainer.appendChild(subcategory2);
+    }
+    if (subcategory3) {
+      subcategoreContainer.appendChild(subcategory3);
+    }
+
+    mainCategoryList.querySelectorAll(".category-btn").forEach((btn, index) => {
+      if (index !== 0 && index !== 1) {
+        btn.classList.remove("active_text");
+      }
+    });
+
     articleContainer.style.gap = "10px";
 
     mainCategoryList
@@ -132,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryBtn.addEventListener("click", handleClick);
       });
   }
+
   mainCategoryList.querySelectorAll(".category-btn").forEach((categoryBtn) => {
     categoryBtn.addEventListener("click", handleClick);
   });
